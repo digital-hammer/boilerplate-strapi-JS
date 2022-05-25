@@ -7,10 +7,11 @@ import global from 'styles/global.module.scss'
 
 export default () => {
   const [width, setWidth] = useState(0)
+  const {data, setData} = useState(false)
   
   useEffect(() => {
-    const { data } = fetch('http://localhost:1337/api/headers/1')
-    const { title } = data?.data.attributes || {}
+    const { data } = fetch('api/headers/1')
+    setData(data)
   }, [])
 
   useEffect(() => {
